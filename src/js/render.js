@@ -1,36 +1,38 @@
 var crel = require('crel')
 
-function checkAnswer(button, answer) {
-	if (button == answer) {
-		return alert('Good Answer')
+require('../css/main.css')
+
+function checkAnswer(btn, answer) {
+	btnclass = btn.classList
+	btn = btn.textContent
+	btn = btn.replace(/\n|\r/g, "")
+	
+	if (btn == answer) {
+		alert('Good Answer')
+	} else {
+		alert('Bad Answer')
 	}
 }
 
 function renderQuiz(quiz) {
-	console.log(quiz.Question)
-	console.log(quiz.A)
-	console.log(quiz.B)
-	console.log(quiz.C)
-	console.log(quiz.CorrectAnswer)
-	
 	var answer = quiz.CorrectAnswer
-	var button1 = crel('button', quiz.A)
-	var button2 = crel('button', quiz.B)
-	var button3 = crel('button', quiz.B)
+	var btn1 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.A)
+	var btn2 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.B)
+	var btn3 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.C)
 	
-//	document.addEventListener('click', function () {
-//		
-//		
-//	})
-	
-	
+	btn1.addEventListener('click', function() {
+		checkAnswer(btn1, answer)
+	})
+	btn2.addEventListener('click', function() {
+		checkAnswer(btn2.textContent, answer)
+	})
+	btn3.addEventListener('click', function() {
+		checkAnswer(btn3.textContent, answer)
+	})
+		
 	return crel('div',
-				crel('h2', quiz.Question),
-				button1, button2, button3)
-//		crel('button', quiz.A),
-//		crel('button', quiz.B),
-//		crel('button', quiz.C))
-	
+				crel('h3', quiz.Question),
+				btn1, btn2, btn3)
 }
 
 function renderQuizzes(quizzes) {
@@ -41,8 +43,5 @@ function renderPage(quizzes) {
 	crel(document.body,
 		 crel('div', renderQuizzes(quizzes)))
 }
-
-
-
 
 module.exports = renderPage
