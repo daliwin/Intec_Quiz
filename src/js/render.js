@@ -21,9 +21,6 @@ function renderQuiz(quiz) {
 	var btn1 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.A)
 	var btn2 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.B)
 	var btn3 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.C)
-	var result
-	var resultC = crel('h4', 'Correct')
-	var resultW = crel('h4', 'Wrong')
 	
 	btn1.addEventListener('click', function() {
 		checkAnswer(btn1.textContent, answer)
