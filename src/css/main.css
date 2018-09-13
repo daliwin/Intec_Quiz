@@ -6,7 +6,6 @@
 body {
 	background: url(https://news.gsu.edu/files/2017/11/iStock-516189065.jpg);
 	background-size: cover
-	
 }
 
 button {
@@ -14,8 +13,38 @@ button {
 	margin-right: 5px;
 }
 
-h1, h3 {
+h1,
+h3 {
 	color: #fff;
 	border-color: #000000;
 	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+	background: rgb(28, 184, 65);
+	/* this is a green */
+}
+
+.button-error {
+	background: rgb(202, 60, 60);
+	/* this is a maroon */
+}
+
+.button-warning {
+	background: rgb(223, 117, 20);
+	/* this is an orange */
+}
+
+.button-secondary {
+	background: rgb(66, 184, 221);
+	/* this is a light blue */
 }
