@@ -7,10 +7,11 @@ function checkAnswer(btn, answer) {
 	btn = btn.replace(/\n|\r/g, "")
 	
 	if (btn == answer) {
-		return true
 		alert('Good Answer')
+		return true
 	} else {
 		alert('Bad Answer')
+		return false
 	}
 }
 
@@ -20,11 +21,12 @@ function renderQuiz(quiz) {
 	var btn1 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.A)
 	var btn2 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.B)
 	var btn3 = crel('button', {class: 'pure-button pure-button-primary'}, quiz.C)
+	var result
+	var resultC = crel('h4', 'Correct')
+	var resultW = crel('h4', 'Wrong')
 	
 	btn1.addEventListener('click', function() {
-		if (checkAnswer(btn1.textContent, answer) == true) {
-			
-		}
+		checkAnswer(btn1.textContent, answer)
 	})
 	btn2.addEventListener('click', function() {
 		checkAnswer(btn2.textContent, answer)
